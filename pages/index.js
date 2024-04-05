@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ArtworkCard from '../components/ArtworkCard';
 import artworks from '../data/artworks';
 import useSort from '../hooks/useSort';
+import FilterAccordion from '../components/FilterAccordion';
 import styles from '../styles/Home.module.css';
 
 const getUniqueValues = (key) => {
@@ -20,16 +21,15 @@ const Home = () => {
 
   const { sortOrder, toggleSortOrder, sortData } = useSort();
 
-  const handleFilterByArtist = (e) => {
-    const value = e.target.value;
+  const handleFilterByArtist = (selectedOption) => {
+    const value = selectedOption ? selectedOption.value : '';
     setFilterByArtist(value);
     const filtered = value === '' ? artworks : artworks.filter((artwork) => artwork.artist === value);
     setFilteredArtworks(filtered);
   };
   
-
-  const handleFilterByOwner = (e) => {
-    const value = e.target.value;
+  const handleFilterByOwner = (selectedOption) => {
+    const value = selectedOption ? selectedOption.value : '';
     setFilterByOwner(value);
     const filtered = value === '' ? artworks : artworks.filter((artwork) => artwork.owner === value);
     setFilteredArtworks(filtered);
@@ -43,34 +43,20 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Matsumura Collection</h1>
-      <div className={styles.filters}>
-        <div>
-          <label htmlFor="filterByArtist">Filter By Artist:</label>
-          <select id="filterByArtist" value={filterByArtist} onChange={handleFilterByArtist}>
-            {artists.map((artist) => (
-              <option key={artist} value={artist}>
-                {artist || 'All'}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="filterByOwner">Filter By Owner:</label>
-          <select id="filterByOwner" value={filterByOwner} onChange={handleFilterByOwner}>
-            {owners.map((owner) => (
-              <option key={owner} value={owner}>
-                {owner || 'All'}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+      <ArtworkCount count={filteredAndSortedArtworks.length} />
       <div className={styles.sortContainer}>
         <button className={styles.sortButton} onClick={toggleSortOrder}>
           {sortOrder === 'asc' ? '⬆️ Ascending' : sortOrder === 'desc' ? '⬇️ Descending' : 'Sort by Purchase Date'}
         </button>
       </div>
-      <ArtworkCount count={filteredAndSortedArtworks.length} />
+      <FilterAccordion
+        artists={artists}
+        owners={owners}
+        filterByArtist={filterByArtist}
+        filterByOwner={filterByOwner}
+        handleFilterByArtist={handleFilterByArtist}
+        handleFilterByOwner={handleFilterByOwner}
+      />
       <div className={styles.artworkList}>
         {filteredAndSortedArtworks.map((artwork) => (
           <ArtworkCard key={artwork.id} artwork={artwork} />

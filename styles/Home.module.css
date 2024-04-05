@@ -146,3 +146,91 @@
   margin-bottom: 1rem;
   font-weight: bold;
 }
+
+/* フィルターアコーディオン */
+.filterAccordion {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.accordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.accordionTitle {
+  font-weight: bold;
+}
+
+.filterSummary {
+  font-weight: normal;
+  color: #666;
+}
+
+.accordionIcon {
+  font-size: 1.2rem;
+}
+
+.accordionContent {
+  padding: 1rem;
+}
+
+.filterItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.filterItem label {
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.select {
+  flex-grow: 1;
+}
+
+/* レスポンシブスタイル */
+@media (max-width: 768px) {
+  .filters {
+    display: none;
+  }
+
+  .filterAccordion {
+    display: block;
+  }
+}
+
+/* React Selectのスタイル */
+.select {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #888;
+  box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.2);
+}
+
+.select__control {
+  min-height: unset !important;
+}
+
+.select__value-container {
+  padding: 0 !important;
+}
+
+.select__indicator-separator {
+  display: none;
+}
