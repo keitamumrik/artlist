@@ -1,5 +1,5 @@
-// pages/artwork/[id].js
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import artworks from '../../data/artworks';
 import ArtworkDetail from '../../components/ArtworkDetail';
 import styles from '../../styles/Home.module.css';
@@ -16,6 +16,9 @@ const ArtworkPage = () => {
   return (
     <div className={styles.container}>
       <ArtworkDetail artwork={artwork} />
+      <Link href="/" className={styles.backLink}>
+        ← Back to List
+      </Link>
     </div>
   );
 };

@@ -9,6 +9,10 @@ const getUniqueValues = (key) => {
   return ['', ...values];
 };
 
+const ArtworkCount = ({ count }) => (
+  <div className={styles.artworkCount}>Total Artworks: {count}</div>
+);
+
 const Home = () => {
   const [filteredArtworks, setFilteredArtworks] = useState(artworks);
   const [filterByArtist, setFilterByArtist] = useState('');
@@ -38,7 +42,7 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>My Art Collection</h1>
+      <h1 className={styles.heading}>Matsumura Collection</h1>
       <div className={styles.filters}>
         <div>
           <label htmlFor="filterByArtist">Filter By Artist:</label>
@@ -66,6 +70,7 @@ const Home = () => {
           {sortOrder === 'asc' ? '⬆️ Ascending' : sortOrder === 'desc' ? '⬇️ Descending' : 'Sort by Purchase Date'}
         </button>
       </div>
+      <ArtworkCount count={filteredAndSortedArtworks.length} />
       <div className={styles.artworkList}>
         {filteredAndSortedArtworks.map((artwork) => (
           <ArtworkCard key={artwork.id} artwork={artwork} />

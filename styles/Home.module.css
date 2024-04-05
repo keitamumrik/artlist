@@ -5,6 +5,12 @@
   padding: 2rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
 .heading {
   text-align: center;
   margin-bottom: 2rem;
@@ -22,6 +28,19 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
+}
+
+/* ArtworkCard用のレスポンシブデザイン */
+@media (max-width: 768px) {
+  .artworkCard {
+    flex-direction: column;
+  }
+
+  .thumbnailContainer {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
 }
 
 .artworkCard:hover {
@@ -111,3 +130,19 @@
 .sortButton:hover {
   background-color: #e0e0e0;
  }
+
+ .backLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.artworkCount {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}

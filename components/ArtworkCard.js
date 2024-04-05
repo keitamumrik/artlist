@@ -8,7 +8,7 @@ const ArtworkCard = ({ artwork }) => {
       <div className={styles.artworkCard}>
         <div className={styles.thumbnailContainer}>
           <Image
-            src={`/images/${artwork.id}.jpg`}
+            src={artwork.imageUrl}
             alt={artwork.title}
             width={250}
             height={200}
