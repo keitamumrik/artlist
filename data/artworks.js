@@ -5,10 +5,10 @@ const artworks = [
     title: 'スカートときいろ',
     artist: 'おがわらあや',
     year: 2022,
-    description: 'A famous post-impressionist painting depicting a swirling night sky over a village.',
+    description:'jkbgんfamous post-impressionist painting depicting a swirling night sky over a village.',
     imageUrl: '/images/1.jpg',
     purchaseDate: '2010-05-15', // 購入日 (YYYY-MM-DD形式)
-    maker: 'Vincent van Gogh', // 制作者
+    maker: 'おがわらあや', // 制作者
     owner: '松村紋子', // 所有者
   },
   {
