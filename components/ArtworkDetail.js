@@ -18,6 +18,7 @@ const ArtworkDetail = ({ artwork }) => {
         <p>Artist: {artwork.artist}</p>
         <p>Year: {artwork.year}</p>
         <p>Description: {artwork.description}</p>
+        <p>Owner: {artwork.owner}</p>
       </div>
     </div>
   );
