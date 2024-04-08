@@ -1,0 +1,19 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model artwork {
+  id           Int      @id @default(autoincrement())
+  title        String?   @db.VarChar(255)
+  artist       String?   @db.VarChar(255)
+  year         Int?
+  description  String?
+  imageUrl     String?   @map("image_url") @db.VarChar(255)
+  purchaseDate DateTime? @map("purchase_date") @db.Date
+  owner        String?   @db.VarChar(255)
+}
