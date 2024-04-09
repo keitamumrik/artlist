@@ -42,15 +42,15 @@ const ArtworkPage = () => {
 
   return (
     <div className={styles.container}>
-      <Link href="/" className={styles.backLink}>
-        ← Back to List
-      </Link>
       {editMode ? (
         <ArtworkEdit artwork={artwork} onSave={handleSave} onCancel={() => setEditMode(false)} />
       ) : (
         <>
-          <ArtworkDetail artwork={artwork} />
-          <button onClick={() => setEditMode(true)}>Edit</button>
+        <Link href="/" className={styles.backLink}>
+        ← Back to List
+        </Link>
+        <ArtworkDetail artwork={artwork} onEdit={() => setEditMode(true)} />
+          
         </>
       )}
     </div>

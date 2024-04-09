@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../styles/Home.module.css';
 
-const ArtworkEdit = ({ artwork, onSave }) => {
+const ArtworkEdit = ({ artwork, onSave, onCancel }) => {
   const [title, setTitle] = useState(artwork.title || '');
   const [artist, setArtist] = useState(artwork.artist || '');
   const [year, setYear] = useState(artwork.year || '');
@@ -49,7 +49,10 @@ const ArtworkEdit = ({ artwork, onSave }) => {
         Owner:
         <input type="text" value={owner} onChange={(e) => setOwner(e.target.value)} />
       </label>
-      <button type="submit">Save</button>
+      <div className={styles.editButtons}>
+        <button type="submit">Save</button>
+        <button type="button" onClick={onCancel}>Cancel</button>
+      </div>
     </form>
   );
 };
